@@ -1,0 +1,532 @@
+body {
+    font-family: montserrat !important;
+}
+
+ul li {
+    font-size: 1.7rem;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+button {
+    font-size: 1.6rem !important;
+}
+
+.topBanner {
+    background-image: url(../image/top-banner.jpg);
+    min-height: 75rem;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.topBannerOverlay {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    min-height: 75rem;
+}
+
+.topContent {
+    margin-top: 30rem;
+    color: #ffffff
+}
+
+.topContent h2 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.topContent h5 {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #eeeeee;
+}
+
+.topContent Button {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    padding: .7rem 1.2rem;
+}
+
+/* Services section */
+
+.serviceSection {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+.sectionTitle {
+    margin: 50px 0;
+    color: #2c2583;
+    text-align: center;
+    font-size: 3.4rem;
+    font-weight: 700;
+}
+
+.serviceCard {
+    margin: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: 0 0 5px rgb(44, 37, 131, .2);
+    transition: all ease .3s;
+    border-radius: 4px;
+    min-height: 43rem;
+}
+
+.serviceCard:hover {
+    box-shadow: 0 0 5px rgb(44, 37, 131, .4);
+}
+
+.serviceCard i {
+    font-size: 6rem;
+    width: 12rem;
+    height: 12rem;
+    line-height: 9rem;
+    text-align: center;
+    color: #2c2583;
+    padding: 1rem;
+    border: 1px solid #2c2583;
+    border-radius: 100rem;
+    -webkit-border-radius: 100rem;
+    -moz-border-radius: 100rem;
+    -ms-border-radius: 100rem;
+    -o-border-radius: 100rem;
+}
+
+.serviceCard h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 2.4rem;
+    color: #333;
+}
+
+.serviceCard p {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* Services section */
+
+/* TOP NAVIGATION */
+
+.TopNavigationItem {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.TopNavigationItem {
+    padding: 0 2rem;
+}
+
+.navLogo {
+    max-width: 50%;
+    width: 18rem;
+    color: #ffffff;
+    font-size: 3rem !important;
+    transition: all ease-in .2s;
+    -webkit-transition: all ease-in .2s;
+    -moz-transition: all ease-in .2s;
+    -ms-transition: all ease-in .2s;
+    -o-transition: all ease-in .2s;
+}
+
+.navLogoScroll {
+    color: red !important;
+    max-width: 50%;
+    width: 18rem;
+    font-size: 3rem !important;
+    transition: all ease-in .2s;
+    -webkit-transition: all ease-in .2s;
+    -moz-transition: all ease-in .2s;
+    -ms-transition: all ease-in .2s;
+    -o-transition: all ease-in .2s;
+}
+
+.navBarBg {
+    background-color: rgba(00, 00, 00, 00) !important;
+    transition: all ease-in .2s;
+    -webkit-transition: all ease-in .2s;
+    -moz-transition: all ease-in .2s;
+    -ms-transition: all ease-in .2s;
+    -o-transition: all ease-in .2s;
+}
+
+.navBarBgScroll {
+    background-color: #fff !important;
+    box-shadow: 0 0 6px 0 #2b25833a;
+    transition: all ease-in .2s;
+    -webkit-transition: all ease-in .2s;
+    -moz-transition: all ease-in .2s;
+    -ms-transition: all ease-in .2s;
+    -o-transition: all ease-in .2s;
+}
+
+.navItem {
+    color: #ffffff;
+    font-size: 1.6rem !important;
+    letter-spacing: .5px;
+    padding: 0 2rem !important;
+}
+
+.navItem:hover {
+    color: #eeeeee !important;
+    text-decoration: none;
+}
+
+.navItemScroll {
+    color: #333;
+    font-size: 1.6rem !important;
+    letter-spacing: .5px;
+    padding: 0 2rem !important;
+}
+
+.navItemScroll:hover {
+    color: #2c2583 !important;
+    text-decoration: none;
+}
+
+/* Top navigation section */
+
+/* Technology section */
+
+.technology {
+    margin-top: 10rem;
+}
+
+.techDes {
+    font-size: 1.6rem;
+    color: #333333;
+}
+
+/* Total Project section */
+
+.totalProject {
+    background-image: url('../../Assets/image/project.jpg');
+    margin-top: 8rem !important;
+    min-height: 50rem;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin-bottom: 5rem;
+}
+
+.totalProjectOverlay {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    min-height: 50rem;
+}
+
+.countNumber {
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.countTitle {
+    font-size: 2.4rem;
+    font-weight: 500;
+    font-family: Raleway;
+    text-transform: uppercase;
+}
+
+.projectCard h2 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.projectCard i {
+    color: #448be9;
+    font-size: 2rem;
+}
+
+.projectCard p {
+    font-size: 1.6rem;
+}
+
+/* Recent Project */
+
+.recentProject {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+.projectCard {
+    box-shadow: 0 0 5px rgb(44, 37, 131, .2);
+    transition: all ease .3s;
+}
+
+.projectCard:hover {
+    box-shadow: 0 0 5px rgb(44, 37, 131, .3);
+    transition: all ease .3s;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+}
+
+.recentCardTitle {
+    font-size: 2.2rem !important;
+}
+
+.recentCardBody {
+    font-size: 1.5rem !important;
+}
+
+.recentBtn {
+    font-size: 1.4rem !important;
+    letter-spacing: 1px !important;
+    font-family: raleway;
+}
+
+/* Course section */
+
+.courseSection {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+.courseTitle {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.courseDesc {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.courseDetails {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* Video section */
+
+.videoSection {
+    margin-top: 15rem;
+    margin-bottom: 5rem;
+}
+
+.videoCard {
+    padding: 14rem 8rem;
+    box-shadow: 0 0 5px rgb(44, 37, 131, .2);
+}
+
+.videoTitle {
+    color: #2c2583;
+    font-size: 3.4rem;
+    font-weight: 600;
+}
+
+.videoDesc {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+}
+
+.videoCard span i {
+    color: #2c2583;
+    font-size: 4.5rem;
+    cursor: pointer;
+    margin-top: 3rem;
+}
+
+.modalBtn {
+    font-size: 1.6rem !important;
+}
+
+/* Review section */
+
+.reviewSection {
+    margin-top: 15rem;
+    margin-bottom: 10rem;
+}
+
+.reviewImg {
+    width: 10rem;
+    height: 10rem;
+    box-shadow: 0 0 5px rgb(44, 37, 131, .2);
+    border: 1px solid #2c2583;
+    margin: 0 auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.reviewTitle {
+    margin-top: 2rem;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.reviewDesc {
+    font-size: 1.6rem;
+}
+
+/* Footer section */
+
+.footerSection {
+    margin-top: 15rem;
+    border-top: .5px solid #2b258328;
+    box-shadow: 0px -4px 6px 0px #2b258305;
+}
+
+.footerSection a {
+    display: block;
+    font-size: 1.6rem;
+    color: #333333
+}
+
+.footerTitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.footerSection p, .contactSection p {
+    font-size: 1.6rem;
+}
+
+.footerSection a i, .footerSection p i, .contactSection a i, .contactSection p i {
+    width: 2rem;
+    text-align: center;
+}
+
+.copyrightSection {
+    background: #2b258313;
+}
+
+.copyright {
+    font-size: 1.6rem;
+    color: #333333;
+}
+
+/* Single Page top banner */
+
+.pageTopBanner {
+    background-image: url(../image/top-banner.jpg);
+    min-height: 40rem;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.pageTopBannerOverlay {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    min-height: 40rem;
+}
+
+.pageTopContent h2 {
+    margin-top: 20rem;
+    color: #ffffff;
+    font-size: 4rem;
+    text-transform: capitalize;
+}
+
+/* All course */
+
+.allCourse {
+    margin-top: 10rem !important;
+}
+
+/* Contact section */
+.contactSection{
+    margin-top: 10rem;
+}
+
+.formLabel {
+    font-size: 1.7rem;
+}
+
+input, textarea {
+    font-size: 1.6rem !important;
+    padding: 1rem 0 !important;
+}
+
+input.form-control, textarea.form-control {
+    padding: 2rem 1rem !important;
+}
+
+.contactFormBtn {
+    padding: .7rem 2rem !important;
+    font-size: 1.6rem !important;
+}
+
+.formTitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 5px rgb(44, 37, 131, .4) !important;
+}
+
+.refundSection, .terms, .privacy, .courseDetails{
+    margin-top: 10rem;
+}
+
+.projectDetailsTitle {
+    margin-bottom: 2rem;
+}
+
+.projectDetailsDesc {
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.courseDetailsList{
+    margin: 0;
+    padding: 0;
+    margin-left: 2rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.link-style {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 1.7rem;
+}
+
+.link-style:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+/* Course Details */
+.courseDetailsBody {
+    margin-top: 10rem;
+}
+
+.courseDetailsBody h2 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.courseDetailsBody ul{
+    margin-bottom: 3rem;
+}
+
+.courseDetailsTop{
+    margin-top: 17rem;
+    color: #fff;
+}
+
+.courseDetailsTitle{
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+}
+
+.courseDetailsNumber{
+    color: #557cff;
+    font-weight: 600;
+}
