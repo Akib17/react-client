@@ -12,6 +12,21 @@ class RestClient {
             });
     }
 
+    static postRequest(postUrl, jsonData) {
+
+        const config = {
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded ' }
+        };
+        
+        return Axios.post(postUrl, jsonData, config)
+            .then(res => {
+                return res.data;
+            })
+            .catch(err => {
+                return null;
+            });
+    }
+
 }
 
 export default RestClient;

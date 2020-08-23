@@ -26,8 +26,8 @@ export default class AppRoute extends Component {
                     <Route exact path="/refund" component={RefundPage} />
                     <Route exact path="/term" component={TermsPage} />
                     <Route exact path="/privacy" component={PrivacyPage} />
-                    <Route exact path="/projectDetails" component={ProjectDetailsPage} />
-                    <Route exact path="/courseDetails" component={CourseDetailsPage} />
+                    <Route exact path="/projectDetails/:projectId/:projectName" component={ProjectDetailsPage} />
+                    <Route exact path="/courseDetails/:courseId/" component={CourseDetailsPage} />
                 </Switch>
             </Fragment>
         )

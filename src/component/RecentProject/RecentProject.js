@@ -6,22 +6,28 @@ import p3 from '../../Assets/image/3.png';
 import { Link } from 'react-router-dom';
 import RestClient from '../../RestApi/RestClient';
 import AppUrl from '../../RestApi/AppUrl';
+import Error from '../Error/Error';
 
 export default class RecentProject extends Component {
 
     constructor() {
         super();
         this.state = {
-            myData: []
+            myData: [],
+            error: false
         };
     }
 
     componentDidMount() {
         RestClient.getRequest(AppUrl.project3)
             .then(res => {
-                this.setState({
-                    myData: res
-                });
+                if (res == null) {
+                    this.setState({ error: true });
+                } else {
+                    this.setState({
+                        myData: res
+                    });
+                }
             })
             .catch(err => {
                 console.log(err);
@@ -31,31 +37,35 @@ export default class RecentProject extends Component {
     render() {
         // const myList = this.state.data;
         const view = this.state.myData.map(data => {
-            return <Col>
+            return <Col key={data.id}>
                 <Card className="projectCard border-0 pb-4 text-center">
                     <Card.Img className="pb-5" variant="top" src={data.project_thum} />
                     <Card.Body>
                         <Card.Title className="recentCardTitle"> {data.project_name} </Card.Title>
                         <Card.Text className="recentCardBody">
                             {data.project_shot_desc}
-                    </Card.Text>
-                        <Button className="recentBtn" variant="primary"><Link className="link-style" to="/projectDetails">View Details</Link></Button>
+                        </Card.Text>
+                        <Button className="recentBtn" variant="primary"><Link className="link-style" to={"/projectDetails/" + data.id + "/" + data.project_name}>View Details</Link></Button>
                     </Card.Body>
                 </Card>
             </Col>;
         });
 
-        return (
-            <Fragment>
-                <Container className="recentProject">
-                    <h2 className="sectionTitle">Recent Projects</h2>
-                    <Row>
+        if (this.state.error == true) {
+            return <Error></Error>;
+        } else {
+            return (
+                <Fragment>
+                    <Container className="recentProject">
+                        <h2 className="sectionTitle">Recent Projects</h2>
+                        <Row>
 
-                        {view}
-                    
-                    </Row>
-                </Container>
-            </Fragment>
-        );
+                            {view}
+
+                        </Row>
+                    </Container>
+                </Fragment>
+            );
+        }
     }
 }

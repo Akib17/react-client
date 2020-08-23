@@ -1,28 +1,58 @@
-import React, { Component, Fragment } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import React, { Component, Fragment } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import RestClient from '../../RestApi/RestClient';
+import AppUrl from '../../RestApi/AppUrl';
+import ReactHtmlParser from 'react-html-parser';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 export default class AboutDescription extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            desc: [],
+            loading: true,
+            error: false
+        };
+    }
+
+    componentDidMount() {
+        RestClient.getRequest(AppUrl.legal)
+            .then(res => {
+                if (res == null) {
+                    this.setState({ error: true, loading: false });
+                } else {
+                    res.map(li => {
+                        this.setState({
+                            desc: li,
+                            loading: false
+                        });
+                    });
+                }
+            });
+    }
+
     render() {
-        return (
-            <Fragment>
-                <Container className="mt-5">
-                    <Row>
-                        <Col>
-                            <h2 className="reviewTitle">Our vision</h2>
-                            <hr />
-                            <p className="reviewDesc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam quo beatae repellat, possimus doloribus praesentium sunt sint exercitationem quidem quisquam quia quas est distinctio enim.</p>
-                            <br />
-                            <h2 className="reviewTitle">Our implementation</h2>
-                            <hr />
-                            <p className="reviewDesc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam quo beatae repellat, possimus doloribus praesentium sunt sint exercitationem quidem quisquam quia quas est distinctio enim. orem ipsum, dolor sit amet consectetur adipisicing elit. Totam quo beatae repellat, possimus dolori</p>
-                            <br />
-                            <h2 className="reviewTitle">Conclusion</h2>
-                            <hr />
-                            <p className="reviewDesc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam quo beatae repellat, possimus doloribus praesentium sunt sint exercitationem quidem quisquam quia quas est distinctio enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sit nobis veniam accusamus voluptatibus quis quaerat tempora, enim repudiandae. Reiciendis ipsa ducimus harum quae quibusdam explicabo libero dolorem est. Consequuntur.</p>
-                        </Col>
-                    </Row>
-                </Container>
-            </Fragment>
-        )
+
+        if (this.state.loading == true) {
+            return <Loading></Loading>;
+        } else if(this.state.loading == false && this.state.error == false) {
+            return (
+                <Fragment>
+                    <Container className="mt-5">
+                        <Row>
+                            <Col>
+                                {ReactHtmlParser(this.state.desc.about_me)}
+                            </Col>
+                        </Row>
+                    </Container>
+                </Fragment>
+            );
+        } else if (this.state.error == true && this.state.loading == false) {
+            return <Error></Error>
+        }
+
+
     }
 }

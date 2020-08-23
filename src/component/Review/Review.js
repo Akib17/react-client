@@ -6,22 +6,28 @@ import Slider from "react-slick";
 import myImg from '../../Assets/image/my-img.jpg';
 import RestClient from '../../RestApi/RestClient';
 import AppUrl from '../../RestApi/AppUrl';
+import Error from '../Error/Error';
 
 export default class Review extends Component {
 
     constructor() {
         super();
         this.state = {
-            myData: []
+            myData: [],
+            error: false
         };
     }
 
     componentDidMount() {
         RestClient.getRequest(AppUrl.clientReview)
             .then(res => {
-                this.setState({
-                    myData: res
-                });
+                if (res == null) {
+                    this.setState({ error: true });
+                } else {
+                    this.setState({
+                        myData: res
+                    });
+                }
             });
     }
 
@@ -68,7 +74,7 @@ export default class Review extends Component {
         const view = myList.map(res => {
             return <div>
                 <Row>
-                    <Col lg={8} md={8} sm={12} className="mx-auto">
+                    <Col key={res.id} lg={8} md={8} sm={12} className="mx-auto">
                         <img className="reviewImg" src={res.client_img} alt="Client Image" />
                         <h2 className="reviewTitle">{res.client_title}</h2>
                         <p className="reviewDesc">{res.client_description}</p>
@@ -77,17 +83,21 @@ export default class Review extends Component {
             </div>;
         });
 
-        return (
-            <Fragment>
-                <Container className="text-center reviewSection">
-                    <h2 className="sectionTitle">What our client says</h2>
-                    <Slider {...settings}>
+        if (this.state.error == true) {
+            return <Error></Error>;
+        } else {
+            return (
+                <Fragment>
+                    <Container className="text-center reviewSection">
+                        <h2 className="sectionTitle">What our client says</h2>
+                        <Slider {...settings}>
 
-                        {view}
+                            {view}
 
-                    </Slider>
-                </Container>
-            </Fragment>
-        );
+                        </Slider>
+                    </Container>
+                </Fragment>
+            );
+        }
     }
 }

@@ -1,25 +1,56 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import RestClient from '../../RestApi/RestClient';
+import AppUrl from '../../RestApi/AppUrl';
+import ReactHtmlParser from 'react-html-parser';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 export default class RefundPolicy extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            desc: '',
+            loading: true,
+            error: false
+        };
+    }
+
+    componentDidMount() {
+        RestClient.getRequest(AppUrl.legal)
+            .then(res => {
+                if (res == null) {
+                    this.setState({ error: true, loading: false });
+                } else {
+                    this.setState({
+                        desc: res[0]['legal'],
+                        loading: false
+                    });
+                }
+            });
+    }
+
     render() {
-        return (
-            <Fragment>
-                <Container>
-                    <Row>
-                        <Col className="refundSection">
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam totam minima, tenetur aliquid illum a facilis inventore debitis ea nam.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur quos consequuntur voluptatum impedit. Ipsum, esse quod maxime impedit unde ea molestiae vero nostrum consequatur voluptatum praesentium tempore aperiam enim. Vel dignissimos vitae delectus iste reprehenderit iure quis quos voluptatem est? Enim et provident odit libero error, aspernatur ipsa nulla quas.</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae minima velit quaerat aliquid quam eveniet laboriosam, perspiciatis similique excepturi porro vel, sit facere incidunt provident sunt itaque accusamus odit nesciunt!</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam totam minima, tenetur aliquid illum a facilis inventore debitis ea nam.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur quos consequuntur voluptatum impedit. Ipsum, esse quod maxime impedit unde ea molestiae vero nostrum consequatur voluptatum praesentium tempore aperiam enim. Vel dignissimos vitae delectus iste reprehenderit iure quis quos voluptatem est? Enim et provident odit libero error, aspernatur ipsa nulla quas.</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae minima velit quaerat aliquid quam eveniet laboriosam, perspiciatis similique excepturi porro vel, sit facere incidunt provident sunt itaque accusamus odit nesciunt!</li>
-                            </ul>
-                        </Col>
-                    </Row>
-                </Container>
-            </Fragment>
-        );
+        if (this.state.loading == true) {
+            return <Loading></Loading>;
+        } else if(this.state.loading == false && this.state.error == false) {
+            return (
+                <Fragment>
+                    <Container>
+                        <Row>
+                            <Col className="refundSection">
+                                <ul>
+                                    {ReactHtmlParser(this.state.desc)}
+                                </ul>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Fragment>
+            );
+        } else if (this.state.error == true && this.state.loading == false) {
+            return <Error></Error>
+        }
+
     }
 }
