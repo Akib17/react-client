@@ -1,9 +1,33 @@
-import React, { Component, Fragment } from 'react'
-import { Container, Row, Col, Card } from 'react-bootstrap'
-import CountUp from 'react-countup'
-import VisibilitySensor from 'react-visibility-sensor'
+import React, { Component, Fragment } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
+import RestClient from '../../RestApi/RestClient';
+import AppUrl from '../../RestApi/AppUrl';
 
 export default class Summary extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            totalProject: '',
+            totalClient: ''
+        };
+    }
+
+    componentDidMount() {
+        RestClient.getRequest(AppUrl.clientHome)
+            .then(result => {
+                this.setState({
+                    totalProject: result[0].total_projects,
+                    totalClient: result[0].total_clients
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
     render() {
         return (
             <Fragment>
@@ -18,7 +42,7 @@ export default class Summary extends Component {
                                                 <h2 className="countNumber">
                                                     <CountUp
                                                         start={0}
-                                                        end={30}
+                                                        end={this.state.totalProject}
                                                         duration={1.75}
                                                     >
                                                         {({ countUpRef, start }) => (
@@ -68,6 +92,6 @@ export default class Summary extends Component {
                     </div>
                 </Container>
             </Fragment >
-        )
+        );
     }
 }

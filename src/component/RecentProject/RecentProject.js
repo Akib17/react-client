@@ -37,7 +37,7 @@ export default class RecentProject extends Component {
     render() {
         // const myList = this.state.data;
         const view = this.state.myData.map(data => {
-            return <Col key={data.id}>
+            return <Col key={data.id} lg={4} sm={12} md={6} className="my-3" >
                 <Card className="projectCard border-0 pb-4 text-center">
                     <Card.Img className="pb-5" variant="top" src={data.project_thum} />
                     <Card.Body>
